@@ -2,17 +2,12 @@ import { useContext } from "react";
 import UserContext from "./UserContext";
 
 function UserProfile() {
-  const user = useContext(UserContext);
-
-  if (!user) {
-    return <p>No user data available.</p>;
-  }
+  const userData = useContext(UserContext);
 
   return (
-    <div style={{ border: "1px solid #ccc", padding: "12px", borderRadius: "8px" }}>
-      <h2>{user.name}</h2>
-      <p><strong>Email:</strong> {user.email}</p>
-      <p>{user.bio}</p>
+    <div>
+      <p>Name: {userData.name}</p>
+      <p>Email: {userData.email}</p>
     </div>
   );
 }

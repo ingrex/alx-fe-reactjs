@@ -1,16 +1,11 @@
-import { useState } from "react";
 import UserContext from "./UserContext";
 import ProfilePage from "./ProfilePage";
 
 function App() {
-  const [user] = useState({
-    name: "Kingsley Chinedu",
-    email: "kingsley@example.com",
-    bio: "Software Engineer passionate about problem solving and innovation."
-  });
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={userData}>
       <ProfilePage />
     </UserContext.Provider>
   );
