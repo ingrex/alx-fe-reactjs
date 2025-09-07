@@ -1,8 +1,8 @@
 function About() {
   return (
-    <div>
-      <h2>About Page</h2>
-      <p>This is the about page of our company website.</p>
+    <div style={{ padding: "20px" }}>
+      <h1>About Us</h1>
+      <p>Our company has been providing top-notch services since 1990. We specialize in technology, marketing, and consultancy.</p>
     </div>
   );
 }
