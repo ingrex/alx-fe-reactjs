@@ -1,12 +1,7 @@
-import UserProfile from "./UserProfile";
+import UserInfo from "./UserInfo";
 
 function ProfilePage() {
-  return (
-    <div>
-      <h1>Profile Page</h1>
-      <UserProfile />
-    </div>
-  );
+  return <UserInfo />;
 }
 
 export default ProfilePage;
