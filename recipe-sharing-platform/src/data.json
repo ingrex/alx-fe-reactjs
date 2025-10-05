@@ -1,38 +1,120 @@
 [
-{
-"id": 1,
-"title": "Spaghetti Carbonara",
-"summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-"image": "https://plus.unsplash.com/premium_photo-1664472682525-0c0b50534850?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
-"id": 2,
-"title": "Chicken Tikka Masala",
-"summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-"image": "https://plus.unsplash.com/premium_photo-1664391929657-f901ee7f1414?q=80&w=753&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
-"id": 3,
-"title": "Avocado Toast",
-"summary": "Simple, healthy breakfast with smashed avocado on toasted bread — add toppings as you like.",
-"image": "https://images.unsplash.com/photo-1515041761709-f9fc96e04cd3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fEF2b2NhZG8lMjBUb2FzdHxlbnwwfHwwfHx8MA%3D%3D"
-},
-{
-"id": 4,
-"title": "Beef Stir-Fry",
-"summary": "Quick and flavorful beef stir-fry with crisp vegetables and a soy-ginger sauce.",
-"image": "https://images.unsplash.com/photo-1700937288157-e9dc231eec2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fEJlZWYlMjBTdGlyLUZyeXxlbnwwfHwwfHx8MA%3D%3D"
-},
-{
-"id": 5,
-"title": "Vegan Buddha Bowl",
-"summary": "A nourishing bowl with grains, roasted veggies, greens and a tahini dressing.",
-"image": "https://plus.unsplash.com/premium_photo-1664648005776-d357bc76d2db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VmVnYW4lMjBCdWRkaGElMjBCb3dsfGVufDB8fDB8fHww"
-},
-{
-"id": 6,
-"title": "",
-"summary": "Fluffy pancakes — perfect for weekend breakfasts. Top with butter, maple syrup or fruits.",
-"image": "https://images.unsplash.com/photo-1586985288123-2495f577c250?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFBhbmNha2VzfGVufDB8fDB8fHww"
-}
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://media.istockphoto.com/id/1142391463/photo/pasta-carbonara.webp?a=1&b=1&s=612x612&w=0&k=20&c=JQzF3EBMOs06KMLskSGV_P0rhzl7oFeoEV8Uq-1w_Vk=",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta or bacon",
+      "2 eggs",
+      "50g grated Parmesan cheese",
+      "Black pepper to taste"
+    ],
+    "instructions": [
+      "Boil the spaghetti until al dente.",
+      "Fry the pancetta until crisp.",
+      "Beat eggs and mix with Parmesan cheese.",
+      "Combine pasta, pancetta, and egg mixture.",
+      "Serve immediately with extra cheese and pepper."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://plus.unsplash.com/premium_photo-1664391929657-f901ee7f1414?q=80&w=753&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "ingredients": [
+      "500g chicken breast",
+      "1 cup yogurt",
+      "2 tbsp tikka masala spice mix",
+      "1 cup tomato puree",
+      "1/2 cup cream"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and spice mix for at least 1 hour.",
+      "Grill chicken pieces until cooked through.",
+      "Cook tomato puree with cream and spices to form sauce.",
+      "Add grilled chicken to sauce and simmer for 10 minutes.",
+      "Serve hot with rice or naan."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Avocado Toast",
+    "summary": "Simple, healthy breakfast with smashed avocado on toasted bread — add toppings as you like.",
+    "image": "https://images.unsplash.com/photo-1515041761709-f9fc96e04cd3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fEF2b2NhZG8lMjBUb2FzdHxlbnwwfHwwfHx8MA%3D%3D",
+    "ingredients": [
+      "2 slices of bread",
+      "1 ripe avocado",
+      "Salt and pepper to taste",
+      "Lemon juice (optional)",
+      "Toppings like eggs, tomatoes, or seeds"
+    ],
+    "instructions": [
+      "Toast the bread slices until golden brown.",
+      "Mash avocado in a bowl with salt, pepper, and lemon juice.",
+      "Spread avocado on toast and add your favorite toppings.",
+      "Serve immediately."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Beef Stir-Fry",
+    "summary": "Quick and flavorful beef stir-fry with crisp vegetables and a soy-ginger sauce.",
+    "image": "https://images.unsplash.com/photo-1700937288157-e9dc231eec2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fEJlZWYlMjBTdGlyLUZyeXxlbnwwfHwwfHx8MA%3D%3D",
+    "ingredients": [
+      "300g beef strips",
+      "2 cups mixed vegetables (bell pepper, broccoli, carrot)",
+      "2 tbsp soy sauce",
+      "1 tbsp grated ginger",
+      "1 tbsp olive oil"
+    ],
+    "instructions": [
+      "Heat oil in a pan over medium-high heat.",
+      "Add beef and cook until browned.",
+      "Add vegetables and stir-fry for 3–4 minutes.",
+      "Pour soy sauce and ginger, and cook for another 2 minutes.",
+      "Serve with rice or noodles."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Vegan Buddha Bowl",
+    "summary": "A nourishing bowl with grains, roasted veggies, greens and a tahini dressing.",
+    "image": "https://plus.unsplash.com/premium_photo-1664648005776-d357bc76d2db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VmVnYW4lMjBCdWRkaGElMjBCb3dsfGVufDB8fDB8fHww",
+    "ingredients": [
+      "1 cup cooked quinoa or rice",
+      "1 cup roasted vegetables (sweet potato, broccoli, chickpeas)",
+      "Fresh greens (spinach, kale)",
+      "2 tbsp tahini dressing"
+    ],
+    "instructions": [
+      "Arrange grains as the base in a bowl.",
+      "Add roasted veggies and greens on top.",
+      "Drizzle with tahini dressing.",
+      "Serve fresh and enjoy."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Classic Pancakes",
+    "summary": "Fluffy pancakes — perfect for weekend breakfasts. Top with butter, maple syrup or fruits.",
+    "image": "https://images.unsplash.com/photo-1586985288123-2495f577c250?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFBhbmNha2VzfGVufDB8fDB8fHww",
+    "ingredients": [
+      "1 1/2 cups all-purpose flour",
+      "2 tbsp sugar",
+      "2 tsp baking powder",
+      "1 egg",
+      "1 cup milk",
+      "2 tbsp melted butter"
+    ],
+    "instructions": [
+      "Mix flour, sugar, and baking powder in a bowl.",
+      "Add egg, milk, and butter, then whisk until smooth.",
+      "Pour batter onto a hot griddle and cook until golden.",
+      "Flip and cook the other side.",
+      "Serve warm with toppings of your choice."
+    ]
+  }
 ]
