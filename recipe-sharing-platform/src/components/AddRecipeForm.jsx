@@ -5,34 +5,45 @@ export default function AddRecipeForm() {
     title: "",
     summary: "",
     image: "",
+    ingredients: "",
+    steps: "",
   });
 
   const [errors, setErrors] = useState({});
 
-  
+ 
   const validate = () => {
     const newErrors = {};
 
     if (!formData.title.trim()) newErrors.title = "Title is required";
     if (!formData.summary.trim()) newErrors.summary = "Summary is required";
     if (!formData.image.trim()) newErrors.image = "Image URL is required";
+    if (!formData.ingredients.trim())
+      newErrors.ingredients = "Ingredients are required";
+    if (!formData.steps.trim()) newErrors.steps = "Steps are required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
       console.log("Recipe added:", formData);
       alert("Recipe added successfully!");
-      setFormData({ title: "", summary: "", image: "" });
+      setFormData({
+        title: "",
+        summary: "",
+        image: "",
+        ingredients: "",
+        steps: "",
+      });
       setErrors({});
     }
   };
@@ -44,7 +55,7 @@ export default function AddRecipeForm() {
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        
+       
         <div>
           <label className="block text-gray-700 font-medium mb-2">Title</label>
           <input
@@ -62,9 +73,11 @@ export default function AddRecipeForm() {
           )}
         </div>
 
-        
+       
         <div>
-          <label className="block text-gray-700 font-medium mb-2">Summary</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Summary
+          </label>
           <textarea
             name="summary"
             value={formData.summary}
@@ -79,7 +92,7 @@ export default function AddRecipeForm() {
           )}
         </div>
 
-        
+      
         <div>
           <label className="block text-gray-700 font-medium mb-2">
             Image URL
@@ -99,7 +112,43 @@ export default function AddRecipeForm() {
           )}
         </div>
 
-        
+    
+        <div>
+          <label className="block text-gray-700 font-medium mb-2">
+            Ingredients
+          </label>
+          <textarea
+            name="ingredients"
+            value={formData.ingredients}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none ${
+              errors.ingredients ? "border-red-500" : "border-gray-300"
+            }`}
+            placeholder="List the ingredients (comma-separated)"
+          ></textarea>
+          {errors.ingredients && (
+            <p className="text-red-500 text-sm mt-1">{errors.ingredients}</p>
+          )}
+        </div>
+
+       
+        <div>
+          <label className="block text-gray-700 font-medium mb-2">Steps</label>
+          <textarea
+            name="steps"
+            value={formData.steps}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none ${
+              errors.steps ? "border-red-500" : "border-gray-300"
+            }`}
+            placeholder="Enter step-by-step instructions"
+          ></textarea>
+          {errors.steps && (
+            <p className="text-red-500 text-sm mt-1">{errors.steps}</p>
+          )}
+        </div>
+
+       
         <button
           type="submit"
           className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold py-2.5 rounded-lg shadow-md hover:from-orange-600 hover:to-orange-500 transition-all duration-300 transform hover:scale-105 active:scale-95"
