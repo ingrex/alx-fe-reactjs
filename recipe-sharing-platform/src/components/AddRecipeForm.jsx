@@ -1,98 +1,112 @@
 import React, { useState } from "react";
 
 export default function AddRecipeForm() {
-  
-  const [title, setTitle] = useState("");
-  const [ingredients, setIngredients] = useState("");
-  const [steps, setSteps] = useState("");
+  const [formData, setFormData] = useState({
+    title: "",
+    summary: "",
+    image: "",
+  });
+
+  const [errors, setErrors] = useState({});
 
   
-  const [error, setError] = useState("");
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.title.trim()) newErrors.title = "Title is required";
+    if (!formData.summary.trim()) newErrors.summary = "Summary is required";
+    if (!formData.image.trim()) newErrors.image = "Image URL is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   
   const handleSubmit = (e) => {
-    e.preventDefault(); 
-    if (!title || !ingredients || !steps) {
-      setError("Please fill out all fields before submitting.");
-      return;
+    e.preventDefault();
+    if (validate()) {
+      console.log("Recipe added:", formData);
+      alert("Recipe added successfully!");
+      setFormData({ title: "", summary: "", image: "" });
+      setErrors({});
     }
-
-    const newRecipe = {
-      id: Date.now(),
-      title,
-      ingredients: ingredients.split(",").map((item) => item.trim()), 
-      steps: steps.split(".").map((step) => step.trim()), 
-    };
-
-    console.log("✅ New Recipe Submitted:", newRecipe);
-    alert("Recipe submitted successfully!");
-    setTitle("");
-    setIngredients("");
-    setSteps("");
-    setError("");
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-orange-50 py-10 px-4">
-      <div className="bg-white shadow-xl rounded-2xl p-8 max-w-lg w-full">
-        <h1 className="text-3xl font-bold text-center text-orange-600 mb-6">
-          Add a New Recipe
-        </h1>
+    <div className="max-w-lg mx-auto mt-10 bg-white p-8 rounded-xl shadow-md">
+      <h2 className="text-2xl font-bold text-orange-600 mb-6 text-center">
+        Add New Recipe
+      </h2>
 
-        {error && (
-          <p className="text-red-500 text-center font-medium mb-4">{error}</p>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-5">
         
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Recipe Title
-            </label>
-            <input
-              type="text"
-              placeholder="Enter recipe title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
-            />
-          </div>
-
-        
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Ingredients (separate with commas)
-            </label>
-            <textarea
-              placeholder="e.g., Flour, Sugar, Butter"
-              value={ingredients}
-              onChange={(e) => setIngredients(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg p-3 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-orange-400"
-            />
-          </div>
-
-          
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Preparation Steps (separate with periods)
-            </label>
-            <textarea
-              placeholder="e.g., Mix ingredients. Bake for 30 minutes."
-              value={steps}
-              onChange={(e) => setSteps(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg p-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-orange-400"
-            />
-          </div>
+        <div>
+          <label className="block text-gray-700 font-medium mb-2">Title</label>
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none ${
+              errors.title ? "border-red-500" : "border-gray-300"
+            }`}
+            placeholder="Enter recipe title"
+          />
+          {errors.title && (
+            <p className="text-red-500 text-sm mt-1">{errors.title}</p>
+          )}
+        </div>
 
         
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold py-3 rounded-lg shadow-md hover:from-orange-600 hover:to-orange-500 transition-all duration-300"
-          >
-            Submit Recipe
-          </button>
-        </form>
-      </div>
-    </main>
+        <div>
+          <label className="block text-gray-700 font-medium mb-2">Summary</label>
+          <textarea
+            name="summary"
+            value={formData.summary}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none ${
+              errors.summary ? "border-red-500" : "border-gray-300"
+            }`}
+            placeholder="Enter short description"
+          ></textarea>
+          {errors.summary && (
+            <p className="text-red-500 text-sm mt-1">{errors.summary}</p>
+          )}
+        </div>
+
+        
+        <div>
+          <label className="block text-gray-700 font-medium mb-2">
+            Image URL
+          </label>
+          <input
+            type="text"
+            name="image"
+            value={formData.image}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none ${
+              errors.image ? "border-red-500" : "border-gray-300"
+            }`}
+            placeholder="Enter image link"
+          />
+          {errors.image && (
+            <p className="text-red-500 text-sm mt-1">{errors.image}</p>
+          )}
+        </div>
+
+        
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold py-2.5 rounded-lg shadow-md hover:from-orange-600 hover:to-orange-500 transition-all duration-300 transform hover:scale-105 active:scale-95"
+        >
+          Add Recipe
+        </button>
+      </form>
+    </div>
   );
 }
