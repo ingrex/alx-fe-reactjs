@@ -25,7 +25,7 @@ export default function HomePage() {
           </p>
         </header>
 
-   <section className="bg-gradient-to-b from-orange-100 to-orange-50 py-12 px-6 sm:px-10 lg:px-16 min-h-screen">
+   <section className=" grid-cols-1 bg-gradient-to-b from-orange-100 to-orange-50 py-12 px-6 sm:px-10 lg:px-16 min-h-screen">
   <h2 className="text-3xl sm:text-4xl font-extrabold text-orange-600 mb-8 text-center">
     Featured Recipes
   </h2>
