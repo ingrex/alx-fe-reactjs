@@ -10,19 +10,35 @@ const fetchPosts = async () => {
 }
 
 export default function PostsComponent() {
-  const { data, error, isLoading, isFetching, refetch } = useQuery({
+  const {
+    data,
+    isLoading,
+    isFetching,
+    isError,
+    error,
+    refetch
+  } = useQuery({
     queryKey: ['posts'],
     queryFn: fetchPosts,
-    staleTime: 1000 * 60 * 2,
+    staleTime: 1000 * 60 * 2, 
   })
 
-  if (isLoading) return <p className="text-gray-600 text-lg">Loading posts...</p>
-  if (error) return <p className="text-red-500 text-lg">Error: {error.message}</p>
+  
+  if (isLoading) {
+    return <p className="text-gray-600 text-lg">Loading posts...</p>
+  }
 
+  
+  if (isError) {
+    return <p className="text-red-500 text-lg">Error: {error.message}</p>
+  }
+
+  
   return (
     <div className="w-full max-w-3xl bg-white shadow-lg rounded-2xl p-6">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold text-gray-800">Latest Posts</h2>
+
         <button
           onClick={() => refetch()}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
