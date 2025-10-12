@@ -1,12 +1,17 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 
-export default function BlogPost() {
+const BlogPost = () => {
   const { id } = useParams();
 
   return (
-    <div className="text-center mt-6">
-      <h1 className="text-3xl font-bold text-blue-600">Blog Post #{id}</h1>
-      <p className="mt-2 text-gray-600">Dynamic route content for post {id}.</p>
+    <div>
+      <h1 className="text-3xl font-bold mb-4">Blog Post #{id}</h1>
+      <p className="text-gray-700">
+        This is a dynamically generated page for the blog post with ID: {id}.
+      </p>
     </div>
   );
-}
+};
+
+export default BlogPost;
