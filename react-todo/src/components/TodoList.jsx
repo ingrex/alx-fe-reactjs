@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import AddTodoForm from "./AddTodoForm";
 
-const TodoList = () => {
+function TodoList() {
   const [todos, setTodos] = useState([
     { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Practice coding", completed: true },
+    { id: 2, text: "Write Tests", completed: true },
   ]);
+  const [newTodo, setNewTodo] = useState("");
 
-  // Add Todo
-  const addTodo = (text) => {
-    const newTodo = { id: Date.now(), text, completed: false };
-    setTodos([...todos, newTodo]);
+  const addTodo = (e) => {
+    e.preventDefault();
+    if (newTodo.trim() === "") return;
+    setTodos([...todos, { id: Date.now(), text: newTodo, completed: false }]);
+    setNewTodo("");
   };
 
-  // Toggle Todo
   const toggleTodo = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -22,42 +22,42 @@ const TodoList = () => {
     );
   };
 
-  // Delete Todo
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
-      <h2 className="text-2xl font-bold text-center mb-4">Todo List</h2>
-      <AddTodoForm addTodo={addTodo} />
-
-      <ul className="mt-4 space-y-2">
+    <div>
+      <h1>Todo List</h1>
+      <form onSubmit={addTodo}>
+        <input
+          placeholder="Add todo"
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
+        />
+        <button type="submit">Add</button>
+      </form>
+      <ul>
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className={`flex justify-between items-center p-2 border rounded cursor-pointer ${
-              todo.completed ? "bg-green-100 line-through" : "bg-gray-50"
-            }`}
+            data-testid="todo-item"
             onClick={() => toggleTodo(todo.id)}
-            data-testid={`todo-${todo.id}`}
+            style={{
+              textDecoration: todo.completed ? "line-through" : "none",
+              cursor: "pointer",
+            }}
           >
-            <span>{todo.text}</span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteTodo(todo.id);
-              }}
-              className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
-              data-testid={`delete-${todo.id}`}
-            >
-              Delete
-            </button>
+            {todo.text}
+            <button data-testid="delete-btn" onClick={(e) => {
+              e.stopPropagation();
+              deleteTodo(todo.id);
+            }}>Delete</button>
           </li>
         ))}
       </ul>
     </div>
   );
-};
+}
 
 export default TodoList;
